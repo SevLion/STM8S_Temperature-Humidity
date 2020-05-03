@@ -3,6 +3,6 @@
 
 void main(void)
 {		 
-		setup();
-	  while(1);
+	setup();
+	while(1);
 }
