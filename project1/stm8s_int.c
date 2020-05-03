@@ -11,21 +11,21 @@ extern void printInformation(void);
 
 void ADC_IRQHandler(void)
 {
-			T += ADC1_GetBufferValue(0);
-			H += ADC1_GetBufferValue(1);
-			ADC1_ClearFlag(ADC1_FLAG_EOC);
-			++i;
+	T += ADC1_GetBufferValue(0);
+	H += ADC1_GetBufferValue(1);
+	ADC1_ClearFlag(ADC1_FLAG_EOC);
+	++i;
 			
-			ADC1->CSR &= (uint8_t)(~ADC1_CSR_CH);
-      ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_5);
-      ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
+	ADC1->CSR &= (uint8_t)(~ADC1_CSR_CH);
+	ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_5);
+	ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
 			
-			if(i >= SAMPLES) {
-			  T /= SAMPLES;
-				H /= SAMPLES;
+	if(i >= SAMPLES) {
+		T /= SAMPLES;
+		H /= SAMPLES;
 				
-			  printInformation();
-				delay_ms(100);
-				i = 0;
-		  }
+		printInformation();
+		delay_ms(100);
+		i = 0;
+	}
 }
