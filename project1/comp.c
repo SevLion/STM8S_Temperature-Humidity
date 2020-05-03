@@ -21,13 +21,13 @@ float calHumidity(unsigned int H) {
 }
 
 void printInformation(void) {
-			PCD8544_clear_screen(WHITE);
-			PCD8544_backlight_state(0);
+	PCD8544_clear_screen(WHITE);
+	PCD8544_backlight_state(0);
 			
-			PCD8544_print_string(1, 2, "TMP:", WHITE);
-			print_float(20, 2, calTemperature(T), 2, WHITE);
-			PCD8544_print_string(56, 2, "C", WHITE);
-			PCD8544_print_string(1, 3, "HUM:", WHITE);
-			print_float(20, 3, calHumidity(H), 2, WHITE);
-			PCD8544_print_string(56, 3, "%", WHITE);
+	PCD8544_print_string(1, 2, "TMP:", WHITE);
+	print_float(20, 2, calTemperature(T), 2, WHITE);
+	PCD8544_print_string(56, 2, "C", WHITE);
+	PCD8544_print_string(1, 3, "HUM:", WHITE);
+	print_float(20, 3, calHumidity(H), 2, WHITE);
+	PCD8544_print_string(56, 3, "%", WHITE);
 }
